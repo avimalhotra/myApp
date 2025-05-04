@@ -1,10 +1,38 @@
 <div class="container">
   <h1>Hello {{title}}</h1>
-  <p>Age is {{age}}</p>
+  <!-- <h1 [ngStyle]="css">Hello {{title}}</h1> -->
+  <p [ngClass]="para">Age is {{age}}</p>
   <p>{{ sayHi() }}</p>
   <p>Date : {{ date.toLocaleString() }}</p>
   <p>Total months:{{months.length}}</p>
   <p>Car name: {{car.name }}, power: {{car.power}} </p>
   <p>Reverse Name: {{reverseStr('abcd')}}</p>
+  <button [disabled]="dis" class="btn" (click)="clickBtn()">Send</button>
+  <!-- <img [src]="pic.src" [alt]="pic.alt" [width]="pic.width" [height]="pic.height"> -->
   <!-- <app-courses></app-courses> -->
+
+  <hr>
+
+  <button class="btn" (click)="dec()">-</button>
+  <b class="count">{{counter}}</b>
+  <button class="btn" (click)="inc()">+</button>
+
+  <hr>
+
+  <!-- <label>Search: <input type="search" (input)="name=$any($event.target).value"></label> <output>{{name}}</output> -->
+
+  <label>Search: <input placeholder="Search Item" [(ngModel)]="name" class="input" type="search"></label>
+  <output>{{name}}</output> 
+  <hr>
+  <label>  <input type="checkbox" [(ngModel)]="chk"> : Terms </label> -> <output>{{chk}}</output>
+
+  <hr>
+
+  <label><input type="radio" name="gender" [(ngModel)]="gender" value="female"> Female</label>
+  <label><input type="radio" name="gender" [(ngModel)]="gender" value="male"> Male</label> ->
+  <span>You have selected <output>{{gender}}</output></span>
+
+  
+  
+
 </div>
