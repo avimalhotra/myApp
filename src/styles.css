@@ -21,3 +21,5 @@ p{margin: 1rem 0;}
 .input{ background: #fff; color: #222; padding: 0.5rem 1rem; border: 1px solid #888; border-radius: 5px; height: 33px; }
 .btn{ background: #fff; color: #222; padding: 0.5rem 1rem; border: 1px solid #888; border-radius: 5px; height: 33px;}
 .btn:enabled:hover{ background: #222; color: #fff;}
+
+app-courses,app-teachers{ margin: 1rem 0; box-shadow: 0 0 10px #888; display: block; padding: 1rem;} 
