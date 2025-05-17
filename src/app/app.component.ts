@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { CoursesComponent } from './courses/courses.component';
-import { TeachersComponent } from "./teachers/teachers.component";
 
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, FormsModule, CoursesComponent, TeachersComponent],
+  imports: [ CommonModule,FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   preserveWhitespaces:true
@@ -15,18 +13,28 @@ import { TeachersComponent } from "./teachers/teachers.component";
 
 export class AppComponent {
   title = 'myApp';
+  cname="lead";
 
-  x=22;
-  pi=3.14;
+  age=24;
 
-  sig="lorem ipsum";
+  turbo=false;
 
-  num:number=0;
+  ev=false;
 
-  showNum(count:number){
-    console.log( this.num );
-    this.num=count;
-  }
+  num=-2;
 
+  cars=["swift","alto","wagon r","brezza","grand vitara"];
+  
+  swift={name:"swift", power: 82, torque: 112};
+
+  data=[
+      {"name": "swift", "type": "hatchback", "price":810000},
+      {"name": "dzire", "type": "hatchback", "price":880000},
+      {"name": "ciaz", "type": "sedan", "price":1000000},
+      {"name": "baleno", "type": "hatchback", "price":850000},
+      {"name": "brezza", "type": "suv", "price":1400000},
+      {"name": "fronx", "type": "hatchback", "price":1000000},
+      {"name": "jimny", "type": "suv", "price":1300000}
+  ];
 
 }

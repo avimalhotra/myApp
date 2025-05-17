@@ -1,12 +1,80 @@
 <div class="container">
   <h1>Hello {{title}}</h1>
 
-  <p>x is {{x}}</p>
-  <p>pi is {{pi}}</p>
-  <p>counter from child is : {{num}}</p>
+  <p>Paragraph</p>
+  <!-- <p [ngClass]="cname">Paragraph</p> -->
 
-  <app-courses [getpi]="pi" [getx]="x" [sigfromparent]="sig" (getT)="showNum($event)"></app-courses>
+  <!-- <p *ngIf="age>=25">Age is valid</p>
+  <p *ngIf="age<25">Age is invalid</p>
 
-  <app-teachers [getpi]="pi"></app-teachers>
+  <p *ngIf="turbo">Car is turbo</p>
+  <p *ngIf="!turbo">Car is not turbo</p> -->
+
+  <label> <input type="checkbox" [(ngModel)]="turbo"> : Turbo</label> <span>{{turbo}}</span>
+
+  @if (turbo) {
+    <p>Car is turbo</p>
+  }
+  @else{
+    <p>Car is natural aspirant</p>
+  }
+  
+  @if (ev) {
+    <p>Car is Electric</p>
+  }
+  @else{
+    <p>Car is fuel based</p>
+  }
+
+
+  @if (num==0) {
+    <p>Its Zero</p>
+  }
+  @else if (num>0) {
+    <p>Its Positive</p>
+  }
+  @else{
+    <p>Its Negative</p>
+  }
+
+  <!-- <ol>
+    <li *ngFor="let i of cars">{{i}}</li>
+  </ol>
+
+  <table>
+    <tr *ngFor="let i of swift | keyvalue"><td>{{i.key}}</td><td>{{i.value}}</td></tr>
+  </table> -->
+<h2>Object </h2>
+  <table class="table">
+  <tr><th>S No</th><th>Property</th><th>Value</th></tr>
+    @for (i of swift | keyvalue; track $index ) {
+      <tr><td>{{$index+1}}</td><td>{{i.key}}</td><td>{{i.value}}</td></tr>
+    }
+  </table>
+<h2>Array </h2>
+<table class="table">
+  <tr><th>S No</th><th>Car</th></tr>
+
+  @for (i of cars; track $index) {
+    <tr><td>{{$index+1}}</td> <td>{{i}}</td> </tr>
+  }
+
+  @empty {
+  <tr><td colspan="2"> No cars found</td> </tr>
+}
+</table>
+
+<h2> Array of Object , JSON Data</h2>
+
+<table class="table">
+  <thead><tr><th>S No</th><th>Name</th><th>Body Type</th><th>Price</th></tr></thead>
+  <tbody>
+    @for (i of data; track $index){
+    <tr><td>{{$index+1}}</td> <td>{{i.name}}</td> <td>{{i.type}}</td> <td>{{i.price}}</td> </tr>
+    }
+  </tbody>
+</table>
+
+
 
 </div>

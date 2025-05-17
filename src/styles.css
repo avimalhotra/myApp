@@ -18,8 +18,12 @@ body{
 .count{ display: inline-block; width: 40px; text-align: center;}
 hr{margin: 1rem 0;}
 p{margin: 1rem 0;}
+.lead{ font-size: 1.24rem; font-weight: 100; }
 .input{ background: #fff; color: #222; padding: 0.5rem 1rem; border: 1px solid #888; border-radius: 5px; height: 33px; }
 .btn{ background: #fff; color: #222; padding: 0.5rem 1rem; border: 1px solid #888; border-radius: 5px; height: 33px;}
 .btn:enabled:hover{ background: #222; color: #fff;}
 
-app-courses,app-teachers{ margin: 1rem 0; box-shadow: 0 0 10px #888; display: block; padding: 1rem;} 
+ol,ul{  margin: 1rem 0;}
+
+.table{ margin: 1rem 0; border-collapse: collapse; width: 100%;}
+.table td,.table th{ border: 1px solid #888; padding: 10px; text-align: left; }
