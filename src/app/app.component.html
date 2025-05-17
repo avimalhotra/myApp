@@ -1,80 +1,39 @@
 <div class="container">
   <h1>Hello {{title}}</h1>
 
-  <p>Paragraph</p>
-  <!-- <p [ngClass]="cname">Paragraph</p> -->
+  <!-- <p>User name is {{name | titlecase }}</p> -->
+  <p>City is {{ "delhi" | titlecase }}</p>
+  <p>{{ "lorem" | uppercase }}</p>
+  <p>{{ "LOREM" | lowercase }}</p>
 
-  <!-- <p *ngIf="age>=25">Age is valid</p>
-  <p *ngIf="age<25">Age is invalid</p>
+  <p>Price : {{ 10 | currency}}</p>
+  <p>Price : {{ 10 | currency : 'GBP'}}</p>
+  <p>Price : {{ 10 | currency : 'INR'}}</p>
+  <p>Price : {{ 12345.345 | currency : 'INR' :'symbol':'4.2-2' }}</p>
 
-  <p *ngIf="turbo">Car is turbo</p>
-  <p *ngIf="!turbo">Car is not turbo</p> -->
+  <p>{{ date | date  }}</p>
+  <p>{{ tomorrow | date  }}</p>
+  <p>{{ date | date:'MMM dd, yyyy hh:mm a'}}</p>
 
-  <label> <input type="checkbox" [(ngModel)]="turbo"> : Turbo</label> <span>{{turbo}}</span>
+  <p>{{ pi | number : '1.0-2' }}</p>
 
-  @if (turbo) {
-    <p>Car is turbo</p>
-  }
-  @else{
-    <p>Car is natural aspirant</p>
-  }
-  
-  @if (ev) {
-    <p>Car is Electric</p>
-  }
-  @else{
-    <p>Car is fuel based</p>
-  }
+  <p> {{ 33/50 | percent }} </p>
+  <p> {{ 412/500 | percent }} </p>
 
+  <!-- <p [ngStyle]="{'color':'#00f'}">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+  <p [ngStyle]="dark">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p> -->
 
-  @if (num==0) {
-    <p>Its Zero</p>
-  }
-  @else if (num>0) {
-    <p>Its Positive</p>
-  }
-  @else{
-    <p>Its Negative</p>
-  }
+<!-- 
+  @switch (day){
+    @case (1) { <p class="text-green">Sunday</p>}
+    @case (2) { <p class="text-green">Monday</p>}
+    @default {<p class="text-red">Invalid</p>}
+  } -->
 
-  <!-- <ol>
-    <li *ngFor="let i of cars">{{i}}</li>
-  </ol>
-
-  <table>
-    <tr *ngFor="let i of swift | keyvalue"><td>{{i.key}}</td><td>{{i.value}}</td></tr>
-  </table> -->
-<h2>Object </h2>
-  <table class="table">
-  <tr><th>S No</th><th>Property</th><th>Value</th></tr>
-    @for (i of swift | keyvalue; track $index ) {
-      <tr><td>{{$index+1}}</td><td>{{i.key}}</td><td>{{i.value}}</td></tr>
-    }
-  </table>
-<h2>Array </h2>
-<table class="table">
-  <tr><th>S No</th><th>Car</th></tr>
-
-  @for (i of cars; track $index) {
-    <tr><td>{{$index+1}}</td> <td>{{i}}</td> </tr>
-  }
-
-  @empty {
-  <tr><td colspan="2"> No cars found</td> </tr>
-}
-</table>
-
-<h2> Array of Object , JSON Data</h2>
-
-<table class="table">
-  <thead><tr><th>S No</th><th>Name</th><th>Body Type</th><th>Price</th></tr></thead>
-  <tbody>
-    @for (i of data; track $index){
-    <tr><td>{{$index+1}}</td> <td>{{i.name}}</td> <td>{{i.type}}</td> <td>{{i.price}}</td> </tr>
-    }
-  </tbody>
-</table>
-
+  <!-- <p class="bg-red">bg red</p>
+  <p class="bg-green">bg green</p>
+  <p class="text-red">text red</p>
+  <p class="text-green">text green</p> -->
 
 
 </div>

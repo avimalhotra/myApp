@@ -12,29 +12,24 @@ import { FormsModule } from '@angular/forms';
 })
 
 export class AppComponent {
+
   title = 'myApp';
-  cname="lead";
 
-  age=24;
+  name="avinash";
 
-  turbo=false;
-
-  ev=false;
-
-  num=-2;
+  day=3;
 
   cars=["swift","alto","wagon r","brezza","grand vitara"];
   
-  swift={name:"swift", power: 82, torque: 112};
+  car={name:"swift", power: 82, torque: 112};
 
-  data=[
-      {"name": "swift", "type": "hatchback", "price":810000},
-      {"name": "dzire", "type": "hatchback", "price":880000},
-      {"name": "ciaz", "type": "sedan", "price":1000000},
-      {"name": "baleno", "type": "hatchback", "price":850000},
-      {"name": "brezza", "type": "suv", "price":1400000},
-      {"name": "fronx", "type": "hatchback", "price":1000000},
-      {"name": "jimny", "type": "suv", "price":1300000}
-  ];
+  dark={ background:"#222", color:"#fff"};
+
+
+  date=new Date().getTime();
+  tomorrow=this.date + (1000 * 60 * 60 * 24);
+  pi=Math.PI;
+
+  
 
 }
