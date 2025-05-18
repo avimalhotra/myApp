@@ -1,39 +1,28 @@
 <div class="container">
   <h1>Hello {{title}}</h1>
 
-  <!-- <p>User name is {{name | titlecase }}</p> -->
-  <p>City is {{ "delhi" | titlecase }}</p>
-  <p>{{ "lorem" | uppercase }}</p>
-  <p>{{ "LOREM" | lowercase }}</p>
+  <p> {{ title | revsort }}</p>
+  <p> {{ "1234" | revsort }} </p>
 
-  <p>Price : {{ 10 | currency}}</p>
-  <p>Price : {{ 10 | currency : 'GBP'}}</p>
-  <p>Price : {{ 10 | currency : 'INR'}}</p>
-  <p>Price : {{ 12345.345 | currency : 'INR' :'symbol':'4.2-2' }}</p>
 
-  <p>{{ date | date  }}</p>
-  <p>{{ tomorrow | date  }}</p>
-  <p>{{ date | date:'MMM dd, yyyy hh:mm a'}}</p>
 
-  <p>{{ pi | number : '1.0-2' }}</p>
-
-  <p> {{ 33/50 | percent }} </p>
-  <p> {{ 412/500 | percent }} </p>
-
-  <!-- <p [ngStyle]="{'color':'#00f'}">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-  <p [ngStyle]="dark">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p> -->
-
-<!-- 
-  @switch (day){
-    @case (1) { <p class="text-green">Sunday</p>}
-    @case (2) { <p class="text-green">Monday</p>}
-    @default {<p class="text-red">Invalid</p>}
-  } -->
-
-  <!-- <p class="bg-red">bg red</p>
-  <p class="bg-green">bg green</p>
-  <p class="text-red">text red</p>
-  <p class="text-green">text green</p> -->
-
+  <table class="table">
+  <thead>
+    <tr>
+      <th>Name <button (click)="sort='name'" class="btn fright">&downarrow;</button></th>
+      <th>Type <button (click)="sort='type'" class="btn fright">&downarrow;</button></th>
+      <th>Price <button (click)="sort='price'" class="btn fright">&downarrow;</button></th>
+    </tr>
+  </thead>
+  <tbody>
+  @for (i of cars | sortjson : sort ; track $index ){
+    <tr>
+      <td>{{i.name }}</td>
+      <td>{{i.type}}</td>
+      <td>{{i.price}}</td>
+    </tr>
+  }
+  </tbody>
+</table>
 
 </div>

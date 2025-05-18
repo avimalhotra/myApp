@@ -35,3 +35,5 @@ ol,ul{  margin: 1rem 0;}
 .bg-red{ background: var(--red); color: #fff;}
 .text-green{ color: var(--green);}
 .bg-green{ background: var(--green); color: #fff;}
+
+.fright{ float: right;}
