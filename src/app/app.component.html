@@ -1,37 +1,66 @@
 <div class="container">
-    <h1>Hello {{title}}</h1>
-    <div class="row">
-      <div class="col">
-        <h2>Form</h2>
+  <h1>Hello {{title}}</h1>
+  <div class="row">
+    <div class="col">
+      <h2>Form Validation</h2>
+
+      <!-- <form novalidate #searchform="ngForm"></form> -->
+
       <form novalidate #loginform="ngForm" (ngSubmit)="formSubmit(loginform)">
-          <div class="form-group"><label>Name: <input class="input" type="text" name="name" [(ngModel)]="model.name" required></label></div>
-          <div class="form-group"><label>Age: <input class="input" type="number" min="18" max="35" name="age" [(ngModel)]="model.age" required></label></div>
-          <div class="form-group">
-            <label> <input type="radio" name="gender" value="Male" [(ngModel)]="model.gender" required> Male</label> 
-            <label> <input type="radio" name="gender" value="Female" [(ngModel)]="model.gender" required> Female</label>
-          </div>
-            <div class="form-group"><label><input type="checkbox" required name="terms" [(ngModel)]="model.terms"> : Terms and Condition</label></div>
-          <div class="form-group">
-            <button type="submit" [disabled]="loginform.invalid" class="btn">Login</button>
-            <button type="reset" class="btn" (click)="loginform.reset()">Reset</button>
-          </div>
-         
+        <div class="form-group">
+            <label>Name: <input pattern="[a-zA-Z ]{3,}" class="input" type="text" name="name" #name="ngModel" [(ngModel)]="model.name" required></label>
+            <span class="text-orange" [hidden]="name.valid || name.dirty">Enter Name</span>
+            <span class="text-red" [hidden]="name.valid || name.pristine">Invalid Name</span>
+            <span class="text-green" [hidden]="name.invalid || name.pristine">Name Accepted</span>
+        </div>
+
+        <div class="form-group">
+          <label>Age: <input class="input" type="number" min="18" max="35" name="age" #age="ngModel" [(ngModel)]="model.age" required></label>
+            <span class="text-orange" [hidden]="age.valid || age.dirty">Enter Age</span>
+            <span class="text-red" [hidden]="age.valid || age.pristine">Invalid Age</span>
+            <span class="text-green" [hidden]="age.invalid || age.pristine">Valid Age</span>
+        </div>
+
+        <div class="form-group">
+          <label>Email: <input class="input" pattern="[\w]{1,}@[\w]{1,}\.[a-zA-Z]{2,}" type="email"  name="email" #email="ngModel" [(ngModel)]="model.email" required></label>
+            <span class="text-orange" [hidden]="email.valid || email.dirty">Enter Email</span>
+            <span class="text-red" [hidden]="email.valid || email.pristine">Invalid Email</span>
+            <span class="text-green" [hidden]="email.invalid || email.pristine">Valid Email</span>
+        </div>
+
+        <div class="form-group">
+          <label> <input type="radio" name="gender" value="Male" #gender="ngModel" [(ngModel)]="model.gender" required> Male</label>
+          <label> <input type="radio" name="gender" value="Female" #gender="ngModel" [(ngModel)]="model.gender" required> Female</label>
+            <span class="text-red" [hidden]="gender.valid">Choose Gender</span>
+            <span class="text-green" [hidden]="gender.invalid">Gender Selected</span>
+        </div>
+
+        <div class="form-group">
+          <label><input type="checkbox" required name="terms" #terms="ngModel" [(ngModel)]="model.terms"> : Terms and Condition</label>
+          <span class="text-red" [hidden]="terms.valid">Not Agree</span>
+          <span class="text-green" [hidden]="terms.invalid">Agree</span>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" [disabled]="loginform.invalid" class="btn">Login</button>
+          <button type="reset" class="btn" (click)="loginform.reset()">Reset</button>
+        </div>
       </form>
     </div>
     <div class="col">
-        <h2>Preview</h2>
-         <div class="form-group">Name: {{model.name}}</div>
-          <div class="form-group">Age: {{model.age}}</div>
-          <div class="form-group">Gender: {{model.gender}}</div>
-          <div class="form-group">Terms:  
-            <span class="text-red" [hidden]="model.terms">Not Agree</span> 
-            <span class="text-green" [hidden]="!model.terms">Agree</span>  
-          </div>
+      <h2>Preview</h2>
+      <div class="form-group">Name: {{model.name | titlecase}}</div>
+      <div class="form-group">Age: {{model.age}}</div>
+      <div class="form-group">Email: {{model.email}}</div>
+      <div class="form-group">Gender: {{model.gender}}</div>
+      <div class="form-group">Terms:
+        <span class="text-red" [hidden]="model.terms">Not Agree</span>
+        <span class="text-green" [hidden]="!model.terms">Agree</span>
+      </div>
     </div>
 
-    </div>
+  </div>
 
-    
 
 
 </div>

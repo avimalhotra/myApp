@@ -17,10 +17,8 @@ export class AppComponent {
 
   title = 'myApp';
 
-  model=new Login("",0,"",false);
+  model=new Login("",0,"","",false);
 
-  formSubmit(data:any){
-    console.log(data.value);
-  }
+  formSubmit(data:any){ console.log(data.value) }
 
 }
