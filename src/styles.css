@@ -24,7 +24,6 @@ body{
 .row{ display: grid; grid-template-columns: repeat(2,1fr); }
 
 
-
 hr{margin: 1rem 0;}
 p{margin: 1rem 0;}
 .lead{ font-size: 1.24rem; font-weight: 100; }
