@@ -2,23 +2,50 @@
     
   <h1>Hello {{title}}</h1>
 
-    <form action="" [formGroup]="login" novalidate (ngSubmit)="submitForm()">
+    <form [formGroup]="login" novalidate (ngSubmit)="submitForm()">
 
       <div class="form-group">
           <div class="row align-items-center mb-3">
               <div class="col-sm-1"><label for="name">Name</label></div>
               <div class="col-sm-2"><input type="text" name="name" formControlName="name" class="form-control" id="name" required></div>
-              <div class="col-sm-2"> <output>{{login.value.name}}</output></div>
+              <div class="col-sm-2"> 
+                @if(login.get("name")?.hasError("required") && login.get("name")?.pristine ){<span class="text-warning">Enter Name</span>}
+                @else if(login.get("name")?.invalid && login.get("name")?.dirty ){
+                    <span class="text-danger">Invalid Name</span>
+                 }
+                @else {<span class="text-success">Name Accepted</span>}
+            </div>
           </div>
           <div class="row align-items-center mb-3">
               <div class="col-sm-1"><label for="email">Email</label></div>
               <div class="col-sm-2"><input type="email" name="email" formControlName="email" class="form-control" id="email" required></div>
-               <div class="col-sm-2"> <output>{{login.value.email}}</output></div>
+               <div class="col-sm-2"> 
+
+                @if(login.get("email")?.hasError("required") && login.get("email")?.pristine ){
+                    <span class="text-warning">Enter Email Id</span>
+                }
+                @else if(login.get("email")?.invalid && login.get("email")?.dirty ){
+                    <span class="text-danger">Invalid Email Id</span>
+                 }
+                 @else{
+                    <span class="text-success">Valid Email Id</span>
+                 }                
+            </div>
           </div>
           <div class="row align-items-center mb-3">
               <div class="col-sm-1"><label for="pass">Password</label></div>
-              <div class="col-sm-2"><input type="password" name="pass" formControlName="pass" class="form-control" id="pass" required></div>
-               <div class="col-sm-2"> <output>{{login.valid}}</output></div>
+              <div class="col-sm-2"><input type="password" name="pass" maxlength="12" formControlName="pass" class="form-control" id="pass" required></div>
+               <div class="col-sm-2"> 
+                 @if(login.get("pass")?.hasError("required") && login.get("pass")?.pristine ){
+                    <span class="text-warning">Enter Password</span>
+                }
+                @else if(login.get("pass")?.invalid && login.get("pass")?.dirty ){
+                    <span class="text-danger">Invalid Password</span>
+                 }
+                 @else{
+                    <span class="text-success">Valid Password</span>
+                 } 
+               </div>
           </div>
           <div class="row align-items-center mb-3">
               <div class="col-sm-3"></div>
