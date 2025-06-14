@@ -1,66 +1,31 @@
 <div class="container">
     
-  <h1>Hello {{title}}</h1>
-  <p>Paragraph</p>
-
-    <form [formGroup]="login" novalidate (ngSubmit)="submitForm()">
-
-      <div class="form-group">
-          <div class="row align-items-center mb-3">
-              <div class="col-sm-1"><label for="name">Name</label></div>
-              <div class="col-sm-2"><input type="text" name="name" formControlName="name" class="form-control" id="name" required></div>
-              <div class="col-sm-2"> 
-                @if(login.get("name")?.hasError("required") && login.get("name")?.pristine ){<span class="text-warning">Enter Name</span>}
-                @else if(login.get("name")?.invalid && login.get("name")?.dirty ){
-                    <span class="text-danger">Invalid Name</span>
-                 }
-                @else {<span class="text-success">Name Accepted</span>}
-            </div>
-          </div>
-          <div class="row align-items-center mb-3">
-              <div class="col-sm-1"><label for="email">Email</label></div>
-              <div class="col-sm-2"><input type="email" name="email" formControlName="email" class="form-control" id="email" required></div>
-               <div class="col-sm-2"> 
-
-                @if(login.get("email")?.hasError("required") && login.get("email")?.pristine ){
-                    <span class="text-warning">Enter Email Id</span>
-                }
-                @else if(login.get("email")?.invalid && login.get("email")?.dirty ){
-                    <span class="text-danger">Invalid Email Id</span>
-                 }
-                 @else{
-                    <span class="text-success">Valid Email Id</span>
-                 }                
-            </div>
-          </div>
-          <div class="row align-items-center mb-3">
-              <div class="col-sm-1"><label for="pass">Password</label></div>
-              <div class="col-sm-2"><input type="password" name="pass" maxlength="12" formControlName="pass" class="form-control" id="pass" required></div>
-               <div class="col-sm-2"> 
-                 @if(login.get("pass")?.hasError("required") && login.get("pass")?.pristine ){
-                    <span class="text-warning">Enter Password</span>
-                }
-                @else if(login.get("pass")?.invalid && login.get("pass")?.dirty ){
-                    <span class="text-danger">Invalid Password</span>
-                 }
-                 @else{
-                    <span class="text-success">Valid Password</span>
-                 } 
-               </div>
-          </div>
-          <div class="row align-items-center mb-3">
-              <div class="col-sm-3"></div>
-              <div class="col-sm-9">
-                <button type="submit" class="btn btn-outline-primary">Send</button>
-                <button type="button" class="btn btn-outline-success" (click)="setVal()">Set Value</button>
-                <button type="button" class="btn btn-outline-secondary" (click)="patchval()">Patch Value</button>
-              </div>
-          </div>
-      </div>
-      
-    </form>
-
-    <hr>
-    <app-courses></app-courses>
-
+  <header class="bg-secondary-subtle p-3">
+    <h1>Hello {{title}}</h1>
+  </header>
+  <nav class="p-2 bg-primary-subtle">
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/courses" routerLinkActive="active">Courses</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/teachers" routerLinkActive="active">Teachers</a>
+    </li>
+     <li class="nav-item">
+      <a class="nav-link" routerLink="/search" routerLinkActive="active">Search</a>
+    </li>
+    <!-- <li class="nav-item">
+      <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+    </li> -->
+  </ul>
+  </nav>
+  <main class="p-3 my-3">
+    <router-outlet></router-outlet>
+  </main>
+  <footer class="bg-dark text-white p-3 text-center">
+    <p class="m-0">&copy; 2025</p>
+  </footer>
 </div>
