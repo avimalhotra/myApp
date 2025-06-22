@@ -23,18 +23,14 @@
   </ul>
   </nav>
   <main class="p-3 my-3">
-    <!-- <button class="btn btn-primary" (click)="x=x+1">Change</button> <span>{{x}}</span> -->
-    <!-- <button class="btn btn-primary" (click)="changeNum()">Change</button> <span>{{x}}</span> -->
+    <h2>Main</h2>
 
-    <p>x is {{x}}</p>
-    <p>a is {{a}}</p>
-    <button class="btn btn-primary" (click)="changeNum()">Change a</button>
+    <button class="btn btn-primary" (click)="changeVal()">Increment</button> 
+    <span>x is {{x}}</span>
+        
+
+  <app-home [y]="x"></app-home> 
     <hr>
-    <p>Counter : {{counter}}</p>
-    <p>Data : {{data.getValue()}}</p>
-    <button class="btn btn-primary" (click)="changeCounter()">Change</button>
-    <hr>
-    <app-home [b]="a"></app-home>
     <!-- <router-outlet></router-outlet> -->
   </main>
   <footer class="bg-dark text-white p-3 text-center">

@@ -1,4 +1,5 @@
 import { Component, input } from '@angular/core';
+import { OnChanges, SimpleChange } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,13 @@ import { Component, input } from '@angular/core';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  b=input(0);
 
+
+  y=input(0);
+
+  ngOnChanges( change:SimpleChange){
+    console.log(change);    
+  }
+
+  
 }
