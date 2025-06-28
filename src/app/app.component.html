@@ -25,13 +25,14 @@
   <main class="p-3 my-3">
     <h2>Main</h2>
 
-    <button class="btn btn-primary" (click)="changeVal()">Increment</button> 
-    <span>x is {{x}}</span>
-        
+    <!-- <label>Side 1: <input type="number" min="0" [(ngModel)]="x"></label>
+    <label>Side 2: <input type="number" min="0" [(ngModel)]="y"></label>
+    <button (click)="check()">Check</button>
+    <output>{{area}}</output> -->
 
-  <app-home [y]="x"></app-home> 
+    <!-- <app-home></app-home>  -->
     <hr>
-    <!-- <router-outlet></router-outlet> -->
+    <router-outlet></router-outlet>
   </main>
   <footer class="bg-dark text-white p-3 text-center">
     <p class="m-0">&copy; 2025</p>
