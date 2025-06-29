@@ -19,33 +19,41 @@ import { ErrService } from './err.service';
   styleUrl: './app.component.css',
   preserveWhitespaces:true,
   // providers: [ AppService, ErrService ]
-  providers: [ 
-    { provide:AppService , useClass: AppDevService },
-  ]
+  // providers: [ { provide:AppService , useClass:AppDevService }]
+  // providers: [ { provide:AppService, useExisting:AppDevService }]
+  // providers: [ { provide:AppService, useValue:{ error:"custom error" } }]
+  //   providers: [ { provide:AppService, useFactory:(x:boolean=true)=>{
+  //     if(x){ return new AppService(); }
+  //     else{ return new ErrService();}
+  //   }
+  // }]
+
+  // providers:[AppService]
+
 })
 
 export class AppComponent {
 
   title = 'myApp';
-  data:string="";
-  x=0;
-  y=0;
-  area:number=0;
 
-  constructor( private appserv: AppService, private appdevserv: AppDevService , private errserv: ErrService ){ }
+  constructor( private appserv: AppService, private appdevserv: AppDevService, private errserv:ErrService ){ 
+    
+   }
  
   ngOnInit(){
     // this.data=this.appserv.getData();
     // console.log( this.data );   
     
+    console.log( this.appserv.getData() );
     console.log( this.appdevserv.data() );
+    console.log( this.errserv.checkErr() );
     
+    // console.log( this.appserv );
+
 
   }
 
   // check(){ this.area=this.appserv.getArea(this.x,this.y);}
-
-
 
 
 }
