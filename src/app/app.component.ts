@@ -5,55 +5,49 @@ import { RouterOutlet, Routes, RouterModule, RouterLink, RouterLinkActive } from
 // import { ChangeDetectionStrategy } from '@angular/core';
 // import { HomeComponent } from "./home/home.component";
 // import { BehaviorSubject } from 'rxjs';
-import { AppService } from './app.service';
-import { AppDevService } from './app-dev.service';
-import { ErrService } from './err.service';
+// import { AppService } from './app.service';
+// import { AppDevService } from './app-dev.service';
+// import { ErrService } from './err.service';
+
+import { HttpClientModule } from '@angular/common/http';
+import { WebService } from './web.service';
 
 
 
 @Component({
   selector: 'app-root',
-  // changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, FormsModule, RouterOutlet, RouterLink, RouterLinkActive, RouterModule],
+  imports: [CommonModule, FormsModule, RouterOutlet, RouterLink, RouterLinkActive, RouterModule, HttpClientModule ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   preserveWhitespaces:true,
-  // providers: [ AppService, ErrService ]
-  // providers: [ { provide:AppService , useClass:AppDevService }]
-  // providers: [ { provide:AppService, useExisting:AppDevService }]
-  // providers: [ { provide:AppService, useValue:{ error:"custom error" } }]
-  //   providers: [ { provide:AppService, useFactory:(x:boolean=true)=>{
-  //     if(x){ return new AppService(); }
-  //     else{ return new ErrService();}
-  //   }
-  // }]
-
-  // providers:[AppService]
-
+  providers:[WebService]
 })
 
 export class AppComponent {
 
   title = 'myApp';
+  data:any;
 
-  constructor( private appserv: AppService, private appdevserv: AppDevService, private errserv:ErrService ){ 
-    
-   }
+  constructor( private web: WebService ){  }
  
   ngOnInit(){
-    // this.data=this.appserv.getData();
-    // console.log( this.data );   
-    
-    console.log( this.appserv.getData() );
-    console.log( this.appdevserv.data() );
-    console.log( this.errserv.checkErr() );
-    
-    // console.log( this.appserv );
 
+    // fetch("https://api.github.com/users/avimalhotra").then(i=>i.json()).then(i=>console.log(i));
+    
+    // fetch("https://fakestoreapi.com/products/1").then(i=>i.json()).then(i=>console.log(i)).catch(e=>console.warn(e));
+    // fetch("https://fakestoreapi.com/products/1").then(i=>i.json()).then(i=>this.data=i).catch(e=>console.warn(e));
+    // fetch("https://fakestoreapi.com/products").then(i=>i.json()).then(i=>this.data=i).catch(e=>console.warn(e));
+
+
+    // console.log( this.web.getData() );                  // Observable
+
+       this.web.getData().subscribe( res=>{
+          this.data=res;
+       })
+      
+    
 
   }
-
-  // check(){ this.area=this.appserv.getArea(this.x,this.y);}
 
 
 }

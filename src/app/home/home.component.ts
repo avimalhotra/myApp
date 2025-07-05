@@ -10,11 +10,7 @@ import { OnChanges, SimpleChange } from '@angular/core';
 export class HomeComponent {
 
 
-  y=input(0);
 
-  ngOnChanges( change:SimpleChange){
-    console.log(change);    
-  }
 
   
 }
