@@ -47,3 +47,6 @@ ol,ul{  margin: 1rem 0;}
 
 .fright{ float: right;}
 .form-group{ margin: 1rem 0;}
+
+
+.product{ padding: 1rem; border: 1px solid #000;  border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.2)}

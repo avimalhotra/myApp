@@ -34,10 +34,25 @@
     <table class="table">
       <tr><th>ID</th><th>Title</th><th>Description</th><th>Category</th><th>Price</th><th>Image</th><th>Rating</th></tr>
       @for( item of data ; track $index){
-        <tr><td>{{item.id}}</td><td>{{item.title}}</td><td>{{item.description}}</td><td>{{item.category}}</td><td>{{item.price}}</td><td><img src="{{item.image}}" alt="{{item.title}}" width="50"></td><td>{{item.rating.rate}}, total ratings: {{item.rating.count}}</td></tr>
+        <tr>
+          <td>{{item.id}}</td><td>{{item.title}}</td>
+          <td>{{item.description}}</td>
+          <td>{{item.category}}</td>
+          <td>{{item.price}}</td>
+          <td><img src="{{item.image}}" alt="{{item.title}}" width="50"></td>
+          <td>{{item.rating.rate}}, total ratings: {{item.rating.count}}</td>
+        </tr>
       }
     </table>
     <hr>
+    <div class="product my-3 clearfix">
+        <img class="float-end ms-5" src="{{product.image}}"  alt="{{product.title}}" width="200">
+        <h3>{{product.title}}</h3>
+        <p>{{product.description}}</p>
+        <p>Price: {{product.price | currency}}</p>
+        <p>Category: {{product.category}}</p>
+        <p>Ratings: {{product.rating.rate}}, Total ratings: {{product.rating.count}}</p>
+    </div>
     <router-outlet></router-outlet>
   </main>
   <footer class="bg-dark text-white p-3 text-center">

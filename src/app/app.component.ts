@@ -9,14 +9,14 @@ import { RouterOutlet, Routes, RouterModule, RouterLink, RouterLinkActive } from
 // import { AppDevService } from './app-dev.service';
 // import { ErrService } from './err.service';
 
-import { HttpClientModule } from '@angular/common/http';
+// import { provideHttpClient, withFetch } from '@angular/common/http';
 import { WebService } from './web.service';
 
 
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, FormsModule, RouterOutlet, RouterLink, RouterLinkActive, RouterModule, HttpClientModule ],
+  imports: [CommonModule, FormsModule, RouterOutlet, RouterLink, RouterLinkActive, RouterModule ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   preserveWhitespaces:true,
@@ -27,6 +27,7 @@ export class AppComponent {
 
   title = 'myApp';
   data:any;
+  product:any;
 
   constructor( private web: WebService ){  }
  
@@ -41,11 +42,13 @@ export class AppComponent {
 
     // console.log( this.web.getData() );                  // Observable
 
-       this.web.getData().subscribe( res=>{
-          this.data=res;
-       })
+      // this.web.getData().subscribe( res=>{ this.data=res});
       
-    
+      this.web.getDataValue(2).subscribe( res=>{ this.product=res; });
+
+      // this.web.postDate().subscribe(res=>console.log(res));       
+      
+  
 
   }
 
