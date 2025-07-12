@@ -1,7 +1,9 @@
-import { Component, Input, input } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet, Routes, RouterModule, RouterLink, RouterLinkActive } from '@angular/router';
+import { CardComponent } from "./card/card.component";
+import { AngularComponent } from "./angular/angular.component";
 // import { ChangeDetectionStrategy } from '@angular/core';
 // import { HomeComponent } from "./home/home.component";
 // import { BehaviorSubject } from 'rxjs';
@@ -10,47 +12,30 @@ import { RouterOutlet, Routes, RouterModule, RouterLink, RouterLinkActive } from
 // import { ErrService } from './err.service';
 
 // import { provideHttpClient, withFetch } from '@angular/common/http';
-import { WebService } from './web.service';
-
+// import { WebService } from './web.service';
 
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, FormsModule, RouterOutlet, RouterLink, RouterLinkActive, RouterModule ],
+  imports: [CommonModule, FormsModule, RouterOutlet, RouterLink, RouterLinkActive, RouterModule, CardComponent, AngularComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   preserveWhitespaces:true,
-  providers:[WebService]
 })
 
 export class AppComponent {
 
   title = 'myApp';
-  data:any;
-  product:any;
 
-  constructor( private web: WebService ){  }
- 
-  ngOnInit(){
+  y=12;
 
-    // fetch("https://api.github.com/users/avimalhotra").then(i=>i.json()).then(i=>console.log(i));
-    
-    // fetch("https://fakestoreapi.com/products/1").then(i=>i.json()).then(i=>console.log(i)).catch(e=>console.warn(e));
-    // fetch("https://fakestoreapi.com/products/1").then(i=>i.json()).then(i=>this.data=i).catch(e=>console.warn(e));
-    // fetch("https://fakestoreapi.com/products").then(i=>i.json()).then(i=>this.data=i).catch(e=>console.warn(e));
+  msg:any;
 
+  @ViewChild(CardComponent) messageViewChild:CardComponent | undefined;
 
-    // console.log( this.web.getData() );                  // Observable
-
-      // this.web.getData().subscribe( res=>{ this.data=res});
-      
-      this.web.getDataValue(2).subscribe( res=>{ this.product=res; });
-
-      // this.web.postDate().subscribe(res=>console.log(res));       
-      
-  
-
+  ngAfterViewInit(){
+    console.log( this.messageViewChild?.title );    
   }
-
+  
 
 }
