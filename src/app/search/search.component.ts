@@ -19,13 +19,14 @@ export class SearchComponent {
 
     this.route.params.subscribe((y)=>{
       this.x=y['params'];
-      console.log(this.x);
+      // console.log(this.x);
     });
 
     this.route.queryParams.subscribe((p)=>{
       this.searchItem=p;
-      console.log(p);
-  });
+      // console.log(p);
+    });
+
 
   }
 
